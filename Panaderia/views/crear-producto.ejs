@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crear Prodcuto</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/animate.css">
+</head>
+<body>
+    <div class="container">
+        <% const estaCreando = typeof producto === "undefined"%>
+
+        <h1> <%= estaCreando ? 'Crear': 'Actualizar'%> Producto </h1>
+
+        <p><%= estaCreando ? 'Cree': 'Actualice'%> un producto</p>
+
+        <form action="/producto/<%= estaCreando ? 'crear' : 'actualizar'%>
+        -producto/<%= estaCreando ? '' : producto.idProd %>"
+              method="POST">
+            <div>
+                <label for="codPro">Codigo Producto</label>
+                <input id="codPro"
+                       name="codPro"
+                       type="text"
+                       value="<%= estaCreando ? '' : producto.codProd%>"
+                >
+            </div>
+
+            <div>
+                <label for="nombreProd">Nombre</label>
+                <input id="nombreProd"
+                       name="nombreProd"
+                       type="text"
+                       value="<%= estaCreando ? '' : producto.nombreProd%>"
+                >
+            </div>
+
+            <div>
+                <label for="descrProd">Descripcion</label>
+                <input id="descrProd"
+                       name="descProd"
+                       type="text"
+                       value="<%= estaCreando ? '' : producto.descripcionProd%>"
+                >
+            </div>
+
+            <div>
+                <label for="stock">Stock</label>
+                <input id="stock"
+                       name="stock"
+                       type="number"
+                       value="<%= estaCreando ? '' : producto.stock%>"
+                >
+            </div>
+
+            <div>
+                <label for="precioC">Precio Compra</label>
+                <input id="precioC"
+                       name="precioC"
+                       type="text"
+                       value="<%= estaCreando ? '' : producto.precioC%>"
+                >
+            </div>
+
+            <div>
+                <label for="precioV">Precio Venta</label>
+                <input id="precioV"
+                       name="precioV"
+                       type="text"
+                       value="<%= estaCreando ? '' : producto.precioV%>"
+                >
+            </div>
+
+            <button class="btn btn-outline-success" style="margin-top: 10px; margin-bottom: 10px">
+                <%= estaCreando ? 'Crear': 'Actualizar'%> producto
+            </button>
+
+        </form>
+
+        <a href="/producto/productoInicio">
+            <button class="btn btn-outline-success">
+                Regresar
+            </button>
+        </a>
+    </div>
+</body>
+</html>

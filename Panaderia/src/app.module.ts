@@ -2,8 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm';
+
 import {UsuarioEntity} from "./usuario/usuario.entity";
 import {UsuarioModule} from "./usuario/usuario.module";
+import {ProductoEntity} from './producto/producto.entity';
+import {ProductoModule} from './producto/producto.module';
 
 @Module({
   imports: [
@@ -18,11 +21,13 @@ import {UsuarioModule} from "./usuario/usuario.module";
         synchronize: true,
         dropSchema: false,
         entities: [
-          UsuarioEntity
+          UsuarioEntity,
+          ProductoEntity
         ]
       }
     ),
-    UsuarioModule
+    UsuarioModule,
+    ProductoModule
   ],
   controllers: [
     AppController
@@ -32,4 +37,6 @@ import {UsuarioModule} from "./usuario/usuario.module";
   ],
 })
 
-export class AppModule {}
+export class AppModule {
+
+}

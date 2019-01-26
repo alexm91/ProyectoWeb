@@ -11,47 +11,14 @@ import {
   Head, UnauthorizedException, Req, Res, Session
 } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Observable, of } from 'rxjs';
-import {Request, Response} from 'express';
 import {UsuarioService} from "./usuario/usuario.service";
+import { ProductoService } from './producto/producto.service';
 
 @Controller()
 export class AppController {
   constructor(private readonly _appService: AppService,
-              private readonly _usuarioService: UsuarioService) {}
-
-  @Post('crearUsuario')
-  @HttpCode(200)
-  crearUsuario(
-    @Body() usuario: Usuario,
-    @Body('nombre') nombre: string,
-    @Headers() cabeceras,
-    @Headers('seguridad') codigo,
-    @Res() res: Response,
-    @Req() req: Request | any,
-  ) {
-    console.log('Cookies', req.cookies);
-    console.log('Cookies', req.secret);
-    console.log('Cookies Seguras', req.signedCookies);
-    console.log(usuario);
-    console.log(cabeceras);
-
-    if (codigo === '1234') {
-      const bdd = this._appService.crearUsuario(usuario);
-
-      res.append('token', '5678');
-      res.cookie("app", "panaderia")
-      res.cookie("segura","secreto", {
-        signed: true
-      });
-      res.json(bdd);
-    } else {
-      throw new UnauthorizedException({
-        mensaje: 'Error de autorizacion',
-        error: 401
-      })
-    }
-  }
+              private readonly _usuarioService: UsuarioService,
+              private readonly _productoService: ProductoService) {}
 
   @Get('login')
   mostrarLogin(
@@ -75,8 +42,7 @@ export class AppController {
 
     if (respuesta) {
       sesion.usuario = username;
-      //res.send('ok');
-      res.redirect('/participante/inicio');
+      res.redirect('/producto/productoInicio');
     } else {
       res.redirect('login');
     }
@@ -96,4 +62,13 @@ export class AppController {
 
 export interface Usuario {
   nombre: string;
+}
+
+export interface Producto {
+  idProd?: string;
+  nombreProd: string;
+  descripcionProd: string;
+  precioC: number;
+  precioV: number;
+  stock: number;
 }

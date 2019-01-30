@@ -6,6 +6,7 @@ import * as ejs from 'ejs';
 import * as session from 'express-session';
 import * as FileSession from 'session-file-store';
 import * as express from 'express';
+import * as path from "path";
 
 const FileStore = FileSession(session);
 
@@ -34,7 +35,7 @@ async function bootstrap() {
   app.use(
     express.static('publico')
   );
-
+    app.use(express.static(path.join(__dirname, '/publico')));
   await app.listen(3000);
 }
 

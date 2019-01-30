@@ -10,7 +10,7 @@ import {UsuarioModule} from "./usuario/usuario.module";
     TypeOrmModule.forRoot(
       {
         type: 'mysql',
-        host: 'localhost',
+        host: '192.168.99.100',
         port: 32769,
         database: 'panaderia',
         username: 'web',

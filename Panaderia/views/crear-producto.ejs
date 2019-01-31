@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Prodcuto</title>
+    <title>Crear Producto</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/animate.css">
 </head>
@@ -18,7 +18,7 @@
         <p><%= estaCreando ? 'Cree': 'Actualice'%> un producto</p>
 
         <form action="/producto/<%= estaCreando ? 'crear' : 'actualizar'%>
-        -producto/<%= estaCreando ? '' : producto.idProd %>"
+        -producto/<%= estaCreando ? '' : producto.codProd %>"
               method="POST">
             <div>
                 <label for="codPro">Codigo Producto</label>
@@ -39,9 +39,9 @@
             </div>
 
             <div>
-                <label for="descrProd">Descripcion</label>
-                <input id="descrProd"
-                       name="descProd"
+                <label for="descripcionProd">Descripcion</label>
+                <input id="descripcionProd"
+                       name="descripcionProd"
                        type="text"
                        value="<%= estaCreando ? '' : producto.descripcionProd%>"
                 >
@@ -57,18 +57,18 @@
             </div>
 
             <div>
-                <label for="precioC">Precio Compra</label>
-                <input id="precioC"
-                       name="precioC"
+                <label for="precioCompra">Precio Compra</label>
+                <input id="precioCompra"
+                       name="precioCompra"
                        type="text"
                        value="<%= estaCreando ? '' : producto.precioCompra%>"
                 >
             </div>
 
             <div>
-                <label for="precioV">Precio Venta</label>
-                <input id="precioV"
-                       name="precioV"
+                <label for="precioVenta">Precio Venta</label>
+                <input id="precioVenta"
+                       name="precioVenta"
                        type="text"
                        value="<%= estaCreando ? '' : producto.precioVenta%>"
                 >

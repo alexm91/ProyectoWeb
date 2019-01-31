@@ -68,7 +68,7 @@ export interface Producto {
   idProd?: string;
   nombreProd: string;
   descripcionProd: string;
+  stock: number;
   precioC: number;
   precioV: number;
-  stock: number;
 }

@@ -11,9 +11,9 @@ export class ProductoService {
       idProd: 'ASD123',
       nombreProd: 'Pan',
       descripcionProd: 'Pan horneado',
+      stock: 10,
       precioC: 0.50,
-      precioV: 0.55,
-      stock: 10
+      precioV: 0.55
     }
   ];
 
@@ -33,13 +33,13 @@ export class ProductoService {
     return this._productoRepository.save(productoEntity);
   }
 
-  /*eliminar(idProducto: string): Promise<ProductoEntity> {
+  eliminar(idProducto: string): Promise<ProductoEntity> {
     const productoEliminar: ProductoEntity = this._productoRepository
       .create({
-        idProd: idProducto
+        codProd: idProducto
       });
     return this._productoRepository.remove(productoEliminar);
-  }*/
+  }
 
   actualizar(nuevoProducto: Producto) : Promise<ProductoEntity> {
     const productoEntity: ProductoEntity = this._productoRepository

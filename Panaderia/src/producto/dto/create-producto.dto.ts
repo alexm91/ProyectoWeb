@@ -1,6 +1,11 @@
 import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateProductoDto {
+
+  @IsNotEmpty()
+  @IsString()
+  codProd: string;
+
   @IsNotEmpty()
   @IsString()
   nombreProd: string;

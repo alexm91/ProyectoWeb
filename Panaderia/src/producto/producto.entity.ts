@@ -33,13 +33,13 @@ export class ProductoEntity {
 
   @Column({
     name: 'precio_compra',
-    type: 'decimal',
+    type: 'double',
   })
   precioCompra: number;
 
   @Column({
     name: 'precio_venta',
-    type: 'decimal',
+    type: 'double',
   })
   precioVenta: number;
 

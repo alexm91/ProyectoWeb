@@ -15,22 +15,21 @@
     <img alt="" class="img-circle" src="/img/PandaLogo.jpg">
 </div>
 <div class="container" align="center">
-    <h1>Login</h1>
-    <p>Ingresa tus credenciales</p>
+    <h1><span>Inicio de Sesión</span></h1>
 
     <form action="/login"
           method="post"
     >
         <div>
-            <label for="username">Usuario</label>
-            <input id="username" type="text" name="username">
+            <input id="username" placeholder="Nombre de Usuario" type="text" name="username">
+
         </div>
         <div>
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password">
+
+            <input id="password" type="password" placeholder="Contraseña" name="password">
         </div>
         <a href="/participante/inicio" style="text-decoration: none">
-            <button>Login</button>
+            <button class="submit">Ingresar</button>
         </a>
     </form>
 
@@ -38,6 +37,25 @@
 
 </div>
 
+<div class="section" id="contacts" >
+
+    <h1><span>Contáctanos</span></h1>
+    <div>
+        <a href="https://www.sololearn.com/" target="_blank">
+            <img alt="SoloLearn" src="/logo/logoemail.png" />
+        </a>
+        <a href="#">
+            <img alt="Facebook" src="/logo/logoface.png"/>
+        </a>
+        <a href="#">
+            <img alt="Twitter" src="/logo/logotwi.png" />
+        </a>
+    </div>
+</div>
+
+<div class="copyright">
+    &copy; 2019 Panadería Panda. Todos los derechos reservados.
+</div>
 </body>
 </html>
 

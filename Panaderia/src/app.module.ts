@@ -14,7 +14,7 @@ import {ProductoModule} from './producto/producto.module';
       {
         type: 'mysql',
         host: '192.168.99.100',
-        port: 32771,
+        port: 32769,
         database: 'panaderia',
         username: 'web',
         password: 'asdf1234',

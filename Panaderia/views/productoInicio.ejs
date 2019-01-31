@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Productos</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/login.css">
 
 </head>
 <body>
+<div id="header" class="section">
+    <img alt="" class="img-circle" src="/img/PandaLogo.jpg">
+</div>
     <div class="container">
         <% const existeMensaje = typeof mensaje !== "undefined"%>
 
@@ -27,14 +30,13 @@
             </span> : <%= mensaje %>
             </div>
         <% }%>
-        <h1>Panaderia PANDA</h1>
-        <h1>Administracion de Productos <br></h1>
-        <p>Administrar los diferentes productos de la Panaderia</p>
+        <h1><span>Administración de Productos</span><br></h1>
+        <p>Administración de los diferentes productos de la panaderia en línea.</p>
         <form method="get" action="/producto/productoInicio">
             <div class="row">
                 <div class="col-md-9">
                     <div class="form-group">
-                        <label for="busqueda">Busqueda</label>
+                        <h1 for="busqueda"><span>Busqueda</span></h1>
                         <input id="busqueda" type="text" name="busqueda" class="form-control">
                     </div>
                 </div>
@@ -58,19 +60,18 @@
             </div>
         </div>
 
-        <h2>Lista de Productos</h2>
-        <p>Gestionar los diferentes productos</p>
+        <h1><span>Lista de Productos</span></h1>
 
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Codigo Producto</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Stock</th>
-                    <th>Precio Compra</th>
-                    <th>Precio Venta</th>
-                    <th>Accion</th>
+                    <th class="selected">Codigo Producto</th>
+                    <th class="selected">Nombre</th>
+                    <th class="selected">Descripcion</th>
+                    <th class="selected">Stock</th>
+                    <th class="selected">Precio Compra</th>
+                    <th class="selected">Precio Venta</th>
+                    <th class="selected">Accion</th>
                 </tr>
             </thead>
 

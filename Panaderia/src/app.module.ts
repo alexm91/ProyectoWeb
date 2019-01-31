@@ -13,8 +13,8 @@ import {ProductoModule} from './producto/producto.module';
     TypeOrmModule.forRoot(
       {
         type: 'mysql',
-        host: 'localhost',
-        port: 32769,
+        host: '192.168.99.100',
+        port: 32771,
         database: 'panaderia',
         username: 'web',
         password: 'asdf1234',

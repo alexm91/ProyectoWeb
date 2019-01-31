@@ -65,13 +65,13 @@ export class ProductoController {
     );
   }
 
-  @Post('eliminar/:idProducto')
+  @Post('eliminar/:codProd')
   async eliminar(
     @Res() response,
-    @Param('idProducto') idProducto: string,
+    @Param('codProd') codProd: string,
   ) {
-    const producto = await this._productoService.buscarPorId(idProducto);
-    //await this._productoService.eliminar(idProducto);
+    const producto = await this._productoService.buscarPorId(codProd);
+    await this._productoService.eliminar(codProd);
     const parametrosConsulta = `?accion=borrar%producto=${
         producto.nombreProd
       }`;
@@ -94,10 +94,11 @@ export class ProductoController {
   ) {
     const objetoValidacionProducto = new CreateProductoDto();
 
+    objetoValidacionProducto.codProd = producto.codProd;
     objetoValidacionProducto.nombreProd = producto.nombreProd;
-    objetoValidacionProducto.precioC = +producto.precioC;
-    objetoValidacionProducto.precioV = +producto.precioV;
     objetoValidacionProducto.stock = +producto.stock;
+    objetoValidacionProducto.precioCompra = +producto.precioCompra;
+    objetoValidacionProducto.precioVenta = +producto.precioVenta;
 
     const errores: ValidationError[] = await validate(
       objetoValidacionProducto);
@@ -108,20 +109,20 @@ export class ProductoController {
     } else {
       const respuesta = await this._productoService.crear(producto);
 
-      const parametrosConsulta = `?accion=crear%participante=${producto.nombreProd}`
+      const parametrosConsulta = `?accion=crear%producto=${producto.nombreProd}`
       response.redirect(
         '/producto/productoInicio' + parametrosConsulta
       );
     }
   }
 
-  @Get('actualizar-producto/:idProducto')
+  @Get('actualizar-producto/:codProd')
   async actualizarParticipanteVista(
     @Res() response,
-    @Param('idProducto') idProducto: string,
+    @Param('codProd') codProd: string,
     ) {
     const productoEncontrado = await this._productoService
-      .buscarPorId(idProducto);
+      .buscarPorId(codProd);
     response.render(
       'crear-producto',
       {
@@ -130,13 +131,13 @@ export class ProductoController {
     )
   }
 
-  @Post('actualizar-producto/:idProducto')
+  @Post('actualizar-producto/:codProd')
   async actualizarProductoMetodo(
     @Res() response,
-    @Param('idProducto') idProducto: string,
+    @Param('codProd') codProd: string,
     @Body() producto: Producto
   ) {
-    producto.idProd = idProducto;
+    producto.codProd = codProd;
     await this._productoService.actualizar(producto);
     const parametrosConsulta = `?accion=actualizar%producto=${producto.nombreProd}`
 

@@ -8,12 +8,12 @@ import {InjectRepository} from '@nestjs/typeorm';
 export class ProductoService {
   arregloPro: Producto[] = [
     {
-      idProd: 'ASD123',
+      codProd: 'ASD123',
       nombreProd: 'Pan',
       descripcionProd: 'Pan horneado',
       stock: 10,
-      precioC: 0.50,
-      precioV: 0.55
+      precioCompra: 0.50,
+      precioVenta: 0.55
     }
   ];
 
@@ -33,10 +33,10 @@ export class ProductoService {
     return this._productoRepository.save(productoEntity);
   }
 
-  eliminar(idProducto: string): Promise<ProductoEntity> {
+  eliminar(codProducto: string): Promise<ProductoEntity> {
     const productoEliminar: ProductoEntity = this._productoRepository
       .create({
-        codProd: idProducto
+        codProd: codProducto
       });
     return this._productoRepository.remove(productoEliminar);
   }
@@ -47,8 +47,8 @@ export class ProductoService {
     return this._productoRepository.save(productoEntity);
   }
 
-  buscarPorId(idProducto: string) : Promise<ProductoEntity>{
-    return this._productoRepository.findOne(idProducto);
+  buscarPorId(codProducto: string) : Promise<ProductoEntity>{
+    return this._productoRepository.findOne(codProducto);
   }
 
 }

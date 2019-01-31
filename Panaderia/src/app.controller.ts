@@ -65,10 +65,10 @@ export interface Usuario {
 }
 
 export interface Producto {
-  idProd?: string;
+  codProd?: string;
   nombreProd: string;
   descripcionProd: string;
   stock: number;
-  precioC: number;
-  precioV: number;
+  precioCompra: number;
+  precioVenta: number;
 }
